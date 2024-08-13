@@ -36,7 +36,7 @@ int main(){
 			case 1: Cadastro();
 				break;
 			case 2;
-			PesquisaRegistro()
+			PesquisaRegistro();
 				break;
 			case 3; 
 				break;
