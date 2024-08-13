@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 #include <conio.h>
-#define LimiteDeResgistros 5
+#define LimiteDeRegistros 5
 
 
 Cadastro;
@@ -15,13 +15,11 @@ Cadastro;
 			char endereco[100];
 			char telefone[100];
 		}registro;
-	reg registro[LimiteDeResgistros];
+	reg registro[LimiteDeRegistros];
 	
 PesquisaRegistro;
 	char PesquisaIdade[100];
-	int AlguemTemEssaIdade;
-
-
+	int AlguemTemEssaIdade = 0;
 
 int main(){
 	
@@ -38,6 +36,7 @@ int main(){
 			case 1: Cadastro();
 				break;
 			case 2;
+			PesquisaRegistro()
 				break;
 			case 3; 
 				break;
@@ -60,14 +59,17 @@ void PesquisaRegistro(){
 	int Contador = 0;
 	printf("Digite o Nome do Registrado:");
 	gets(PesquisaNome);
-	for(int result = strcmp(PesquisaIdade, registro[Contador].idade); Contador = LimiteDeResgistros + 1; Contador++;)
+	for(int result = strcmp(PesquisaIdade, registro[Contador].idade); Contador == LimiteDeRegistros; Contador++;)
 	if (result == 0){
-	printf("Nome Completo: %s\n", registro[Contador].nome);
+	printf("\nNome Completo: %s\n", registro[Contador].nome);
 		printf("Idade: %s\n", registro[Contador].idade);
 		printf("Endereco: %s\n", registro[Contador].endereco);
-		printf("Telefone: %s\n\n", registro[Contador].telefone);
-		
-		
+		printf("Telefone: %s\n", registro[Contador].telefone);
+		AlguemTemEssaIdade++;}
+	if (AlguemTemEssaIdade == 0){
+		printf("\nNão há ninguém com essa Idade\n")
+		AlguemTemEssaIdade = 0;}
+	}
 }
 
 	
