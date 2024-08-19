@@ -1,7 +1,7 @@
 MOV AX, 4000h     ; Define pra 4000h
 MOV DS, AX        ; Carrega no segmento de dados
 MOV BX, 00h
-MOV CX, 0FFFFh    ; Casa final
+MOV CX, 04FFFh    ; Casa final
 MOV AL, 0AAh      ; Valor a ser gravado
 
 memoria:     
