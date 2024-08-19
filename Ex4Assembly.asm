@@ -9,5 +9,4 @@ memoria:
     ADD BX, 01h
     LOOP memoria ; Vai reduzindo o CX até 0
 
-MOV AH, 4Ch       ; Código para terminar o programa
-INT 21h           ; Chama o DOS para terminar o programa
+HLT
