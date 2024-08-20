@@ -11,6 +11,10 @@ int main(){
         char txt[100];
     } TextoGerado[257];
     int NumeroDaLinha;
+       struct {
+        char Pt[2];
+    } Parte[4];
+    int p;
     
     printf("Digite o nome do arquivo que deseja ler: ");					
     scanf("%s", nomeArqL);
@@ -67,8 +71,22 @@ int main(){
             sprintf(TextoGerado[NumeroDaLinha].txt, "A0 00 %c%c 00", textoLido[3], textoLido[4]);
         else if (strcmp(Instrucoes, "HLT") == 0)
             sprintf(TextoGerado[NumeroDaLinha].txt, "F0 00 %c%c 00", textoLido[4], textoLido[5]);
+                      
+    // Cópia da string original para manipulação
+    char strCopy[50];
+    strncpy(strCopy, TextoGerado[NumeroDaLinha].txt, sizeof(strCopy) - 1);
+    strCopy[sizeof(strCopy) - 1] = '\0';  // Garantir que a string está terminada
+
+    // Usar strtok para separar a string
+    char *token = strtok(strCopy, " ");
+    p=0;
+    while (token != NULL) {
+        strcpy(Parte[p].Pt, token);
+        token = strtok(NULL, " ");
+        p++;
+    }
             
-        fprintf(arqG, "%s\n", TextoGerado[NumeroDaLinha].txt);
+        fprintf(arqG, "%s\n", Parte[p].Pt);
         NumeroDaLinha++;
     }
 
